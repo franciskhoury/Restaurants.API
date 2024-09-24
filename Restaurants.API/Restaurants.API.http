@@ -1,6 +1,35 @@
-@RestaurantsAPI_HostAddress = http://localhost:5029
+@Restaurants.API_HostAddress = https://localhost:7127
+@host = http://localhost
+@port = 5029
+
+@RestaurantsAPI_HostAddress = {{host}}:{{port}}
 
 GET {{RestaurantsAPI_HostAddress}}/api/weatherforecast/
 Accept: application/json
+ProjectUrl: {{$projectUrl}}
+Guid: {{$guid}}
+LocalDateTime: {{$datetime iso8601}}
+Random-int: {{$randomInt}}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/weatherforecast/dayOne
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/hello
+Content-Type: application/json
+
+"Chizzle Swizzle"
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?numResults=4
+Content-Type: application/json
+
+{
+  "MinTempC": 0,
+  "MaxTempC": 27
+}
 
 ###

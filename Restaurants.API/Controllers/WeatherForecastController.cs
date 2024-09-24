@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 
+using Restaurants.API.Interfaces;
+using Restaurants.API.Models;
+
 namespace Restaurants.API.Controllers;
 
 [ApiController]
@@ -25,5 +28,38 @@ public class WeatherForecastController : ControllerBase
     {
         var result = _weatherForecastService.Get();
         return result;
+    }
+
+    [HttpGet("dayOne")]
+    public IActionResult GetDay1()
+    {
+        var result = _weatherForecastService.Get().First();
+        //Response.StatusCode = 400;
+        return Ok(result);
+    }
+
+    [HttpPost("generate")]
+    public IActionResult Generate([FromBody] WeatherForecastRequest wxData, [FromQuery] int numResults)
+    {
+        try
+        {
+            if (wxData.MaxTempC < wxData.MinTempC || numResults < 1)
+                return BadRequest();
+        }
+        catch (Exception)
+        {
+            return BadRequest();
+        }
+
+        var result = _weatherForecastService.Get(wxData.MinTempC, wxData.MaxTempC, numResults);
+        return Ok(result);
+
+
+    }
+
+    [HttpPost("hello")]
+    public string SayHello([FromBody] string name)
+    {
+        return $"Hello, {name}!";
     }
 }
