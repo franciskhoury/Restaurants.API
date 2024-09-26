@@ -41,15 +41,10 @@ public class WeatherForecastController : ControllerBase
     [HttpPost("generate")]
     public IActionResult Generate([FromBody] WeatherForecastRequest wxData, [FromQuery] int numResults)
     {
-        try
-        {
-            if (wxData.MaxTempC < wxData.MinTempC || numResults < 1)
-                return BadRequest();
-        }
-        catch (Exception)
-        {
-            return BadRequest();
-        }
+
+        if (wxData.MaxTempC < wxData.MinTempC || numResults < 1)
+            return BadRequest($"Number of Results must be a positive number. The min temp must be less thn or equal to the max temp.");
+
 
         var result = _weatherForecastService.Get(wxData.MinTempC, wxData.MaxTempC, numResults);
         return Ok(result);

@@ -20,16 +20,16 @@ GET {{Restaurants.API_HostAddress}}/api/weatherforecast/dayOne
 POST {{Restaurants.API_HostAddress}}/api/weatherforecast/hello
 Content-Type: application/json
 
-"Chizzle Swizzle"
+"Bobby"
 
 ###
 
-POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?numResults=4
+POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?numResults=2
 Content-Type: application/json
 
 {
-  "MinTempC": 0,
-  "MaxTempC": 27
+  "MinTempC": 7,
+  "MaxTempC": 26
 }
 
 ###
