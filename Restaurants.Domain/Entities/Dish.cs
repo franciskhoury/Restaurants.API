@@ -14,6 +14,10 @@ public class Dish
     /// </summary>
     public string Description { get; set; } = default!;
     /// <summary>
+    /// Food Calories of the dish
+    /// </summary>
+    public int? Calories { get; set; }
+    /// <summary>
     /// Price of the Dish in USD
     /// </summary>
     public decimal Price { get; set; }
