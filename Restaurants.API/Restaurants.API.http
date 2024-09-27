@@ -4,32 +4,5 @@
 
 @RestaurantsAPI_HostAddress = {{host}}:{{port}}
 
-GET {{RestaurantsAPI_HostAddress}}/api/weatherforecast/
-Accept: application/json
-ProjectUrl: {{$projectUrl}}
-Guid: {{$guid}}
-LocalDateTime: {{$datetime iso8601}}
-Random-int: {{$randomInt}}
-
-###
-
-GET {{Restaurants.API_HostAddress}}/api/weatherforecast/dayOne
-
-###
-
-POST {{Restaurants.API_HostAddress}}/api/weatherforecast/hello
-Content-Type: application/json
-
-"Bobby"
-
-###
-
-POST {{Restaurants.API_HostAddress}}/api/weatherforecast/generate?numResults=2
-Content-Type: application/json
-
-{
-  "MinTempC": 7,
-  "MaxTempC": 26
-}
-
+GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
