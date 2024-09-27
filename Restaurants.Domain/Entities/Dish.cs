@@ -17,4 +17,8 @@ public class Dish
     /// Price of the Dish in USD
     /// </summary>
     public decimal Price { get; set; }
+    /// <summary>
+    /// Id of the Owning Restaurant (Foreign Key)
+    /// </summary>
+    public int RestaurantId { get; set; }
 }
