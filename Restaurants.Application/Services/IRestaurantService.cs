@@ -1,5 +1,4 @@
-﻿
-using Restaurants.Domain.Entities;
+﻿using Restaurants.Application.Services.DTOs;
 
 namespace Restaurants.Application.Services;
 public interface IRestaurantService
@@ -8,11 +7,11 @@ public interface IRestaurantService
     /// Retrieve all Restaurants in the data store.
     /// </summary>
     /// <returns></returns>
-    Task<IEnumerable<Restaurant>> GetAllRestaurantsAsync();
+    Task<IEnumerable<RestaurantDTO>> GetAllRestaurantsAsync();
     /// <summary>
     /// Get the restaurant having the provided id from the data store.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<Restaurant?> GetRestaurantByIdAsync(int id);
+    Task<RestaurantDTO?> GetRestaurantByIdAsync(int id);
 }
