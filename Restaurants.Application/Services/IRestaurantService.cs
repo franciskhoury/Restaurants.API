@@ -14,5 +14,5 @@ public interface IRestaurantService
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<Restaurant> GetRestaurantByIdAsync(int id);
+    Task<Restaurant?> GetRestaurantByIdAsync(int id);
 }
