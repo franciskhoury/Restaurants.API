@@ -18,4 +18,16 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
         var restaurants = await restaurantService.GetAllRestaurantsAsync();
         return Ok(restaurants);
     }
+
+    /// <summary>
+    /// Retrieve the Restaurant from the data store for the provided ID.
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
+    {
+        var restaurant = await restaurantService.GetRestaurantByIdAsync(id);
+
+        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.") : Ok(restaurant);
+    }
 }
