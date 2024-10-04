@@ -7,6 +7,14 @@ namespace Restaurants.Application.Services;
 
 internal class RestaurantService(IRestaurantRepository restaurantRepository, ILogger<RestaurantService> logger) : IRestaurantService
 {
+    public async Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto)
+    {
+        logger.LogInformation("Creating a new restaurant.");
+        // Map the DTO to the Entity model.
+        var restaurant = new { }
+        await restaurantRepository.CreateAsync(dto);
+    }
+
     public async Task<IEnumerable<RestaurantDTO>> GetAllRestaurantsAsync()
     {
         logger.LogInformation("Getting all restaurants.");

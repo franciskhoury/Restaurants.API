@@ -38,7 +38,8 @@ public class RestaurantDTO
     public List<DishDTO> Dishes { get; set; } = [];
 
     /// <summary>
-    /// Map the applicable Entity properties to the DTO object
+    /// Map the applicable Entity properties to the DTO object.
+    /// Note - this logic can be replaced by using the Automapper Nuget package
     /// </summary>
     /// <param name="restaurant"></param>
     /// <returns></returns>
@@ -60,4 +61,22 @@ public class RestaurantDTO
                 Dishes = restaurant.Dishes.Select(DishDTO.FromEntity).ToList()
             };
     }
+
+    public static Restaurant ToEntity(RestaurantDTO dto)
+    {
+        return new Restaurant
+        {
+            Id = dto.Id,
+            Name = dto.Name,
+            Description = dto.Description,
+            Category = dto.Category,
+            Address = new Address
+            {
+                City = dto.City,
+                State = dto.State,
+                Street = dto.Street,
+                PostalCode = dto.PostalCode,
+                CountryCode = dto.CountryCode
+            }
+        }
 }

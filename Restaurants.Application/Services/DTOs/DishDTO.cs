@@ -29,7 +29,8 @@ public class DishDTO
     public int RestaurantId { get; set; }
 
     /// <summary>
-    /// Map the Dish entity to the DishDTO
+    /// Map the Dish entity to the DishDTO.
+    /// Note - this logic can be replaced by using the Automapper Nuget package
     /// </summary>
     /// <param name="dish"></param>
     /// <returns></returns>
