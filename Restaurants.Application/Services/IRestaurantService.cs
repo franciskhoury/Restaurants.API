@@ -19,5 +19,5 @@ public interface IRestaurantService
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto);
+    //Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto);
 }

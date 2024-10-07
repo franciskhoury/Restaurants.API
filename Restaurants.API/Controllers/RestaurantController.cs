@@ -32,15 +32,11 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
         return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.") : Ok(restaurant);
     }
 
-    /// <summary>
-    /// Create a new Restaurant in the data store.
-    /// </summary>
-    /// <param name="dto"></param>
-    /// <returns></returns>
-    [HttpPost]
-    public async Task<IActionResult> CreateAsync([FromBody] RestaurantCreationDTO dto)
-    {
-        int id = await restaurantService.CreateRestaurantAsync(dto);
-        return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
-    }
+
+    //[HttpPost]
+    //public async Task<IActionResult> CreateAsync([FromBody] RestaurantCreationDTO dto)
+    //{
+    //    int id = await restaurantService.CreateRestaurantAsync(dto);
+    //    return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
+    //}
 }

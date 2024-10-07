@@ -14,4 +14,5 @@ public interface IRestaurantRepository
     /// <param name="id"></param>
     /// <returns></returns>
     Task<Restaurant?> GetByIdAsync(int id);
+    //Task<int> CreateAsync(Restaurant restaurant);
 }

@@ -78,5 +78,6 @@ public class RestaurantDTO
                 PostalCode = dto.PostalCode,
                 CountryCode = dto.CountryCode
             }
-        }
+        };
+    }
 }
