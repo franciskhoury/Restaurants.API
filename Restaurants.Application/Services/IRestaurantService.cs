@@ -1,4 +1,4 @@
-﻿using Restaurants.Application.Services.DTOs;
+﻿using Restaurants.Application.DTOs;
 
 namespace Restaurants.Application.Services;
 public interface IRestaurantService
@@ -19,5 +19,5 @@ public interface IRestaurantService
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto);
+    //Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto);
 }

@@ -1,6 +1,7 @@
-﻿using Restaurants.Domain.Entities;
+﻿using Restaurants.Application.Services.DTOs;
+using Restaurants.Domain.Entities;
 
-namespace Restaurants.Application.Services.DTOs;
+namespace Restaurants.Application.DTOs;
 
 /// <summary>
 /// Represents a Restaurant to a client
@@ -78,5 +79,6 @@ public class RestaurantDTO
                 PostalCode = dto.PostalCode,
                 CountryCode = dto.CountryCode
             }
-        }
+        };
+    }
 }

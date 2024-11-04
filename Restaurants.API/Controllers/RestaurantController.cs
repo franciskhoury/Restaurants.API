@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 using Restaurants.Application.Services;
-using Restaurants.Application.Services.DTOs;
 
 namespace Restaurants.API.Controllers;
 
@@ -37,10 +36,10 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
     /// </summary>
     /// <param name="dto"></param>
     /// <returns></returns>
-    [HttpPost]
-    public async Task<IActionResult> CreateAsync([FromBody] RestaurantCreationDTO dto)
-    {
-        int id = await restaurantService.CreateRestaurantAsync(dto);
-        return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
-    }
+    //[HttpPost]
+    //public async Task<IActionResult> CreateAsync([FromBody] RestaurantCreationDTO dto)
+    //{
+    //    int id = await restaurantService.CreateRestaurantAsync(dto);
+    //    return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
+    //}
 }
