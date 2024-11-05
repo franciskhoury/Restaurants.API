@@ -15,7 +15,11 @@ internal class RestaurantService(IRestaurantRepository restaurantRepository,
     //{
     //    logger.LogInformation("Creating a new restaurant.");
     //    // Map the DTO to the Entity model.
+<<<<<<< HEAD
     //    var restaurant = new { }
+=======
+    //    var restaurant = dto.
+>>>>>>> 6471a3a559de5887d847cdd662c0bfd06ef07b5b
     //    await restaurantRepository.CreateAsync(dto);
     //}
 
