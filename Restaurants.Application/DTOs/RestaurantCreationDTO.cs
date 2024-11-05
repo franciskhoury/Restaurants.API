@@ -1,4 +1,4 @@
-﻿namespace Restaurants.Application.Services.DTOs;
+﻿namespace Restaurants.Application.DTOs;
 
 /// <summary>
 /// DTO class for adding a new Restaurant

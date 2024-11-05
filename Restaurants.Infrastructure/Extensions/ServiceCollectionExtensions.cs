@@ -16,5 +16,6 @@ public static class ServiceCollectionExtensions
         _ = services.AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(connectionString));
         _ = services.AddTransient<IRestaurantSeeder, RestaurantSeeder>();
         _ = services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+        _ = services.AddAutoMapper(typeof(Application.Extensions.ServiceCollectionExtensions).Assembly);
     }
 }
