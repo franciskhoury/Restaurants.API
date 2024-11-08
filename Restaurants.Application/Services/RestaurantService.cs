@@ -3,6 +3,7 @@
 using Microsoft.Extensions.Logging;
 
 using Restaurants.Application.DTOs;
+using Restaurants.Domain.Entities;
 using Restaurants.Domain.Repositories;
 
 namespace Restaurants.Application.Services;
@@ -11,17 +12,14 @@ internal class RestaurantService(IRestaurantRepository restaurantRepository,
                                  ILogger<RestaurantService> logger,
                                  IMapper mapper) : IRestaurantService
 {
-    //public async Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto)
-    //{
-    //    logger.LogInformation("Creating a new restaurant.");
-    //    // Map the DTO to the Entity model.
-<<<<<<< HEAD
-    //    var restaurant = new { }
-=======
-    //    var restaurant = dto.
->>>>>>> 6471a3a559de5887d847cdd662c0bfd06ef07b5b
-    //    await restaurantRepository.CreateAsync(dto);
-    //}
+    public async Task<int> CreateRestaurantAsync(RestaurantCreationDTO dto)
+    {
+        logger.LogInformation("Creating a new restaurant.");
+        var restaurant = mapper.Map<Restaurant>(dto); 
+        restaurantRepository.Create(restaurant);
+        
+
+    }
 
     public async Task<IEnumerable<RestaurantDTO>> GetAllRestaurantsAsync()
     {

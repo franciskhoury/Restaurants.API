@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using Restaurants.Application.DTOs;
 using Restaurants.Application.Services;
 
 namespace Restaurants.API.Controllers;
@@ -27,20 +28,18 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
     public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
     {
         var restaurant = await restaurantService.GetRestaurantByIdAsync(id);
-
         return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.") : Ok(restaurant);
     }
-
 
     /// <summary>
     /// Create a new Restaurant in the data store.
     /// </summary>
-    /// <param name="dto"></param>
+    /// <param name="restaurantToCreate"></param>
     /// <returns></returns>
-    //[HttpPost]
-    //public async Task<IActionResult> CreateAsync([FromBody] RestaurantCreationDTO dto)
-    //{
-    //    int id = await restaurantService.CreateRestaurantAsync(dto);
-    //    return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
-    //}
+    [HttpPost]
+    public async Task<IActionResult> CreateRestaurantAsync([FromBody] RestaurantCreationDTO restaurantToCreate)
+    {
+        int id = await restaurantService.CreateRestaurantAsync(restaurantToCreate);
+        return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
+    }
 }

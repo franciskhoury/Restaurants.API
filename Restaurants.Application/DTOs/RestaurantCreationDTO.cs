@@ -8,7 +8,7 @@ public class RestaurantCreationDTO
     /// <summary>
     /// Unique identifier for the Restaurant
     /// </summary>
-    public int Id { get; set; }
+    //public int Id { get; set; }
     /// <summary>
     /// Name of the Restaurant
     /// </summary>
