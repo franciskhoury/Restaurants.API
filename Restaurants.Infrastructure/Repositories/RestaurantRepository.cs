@@ -20,4 +20,15 @@ internal class RestaurantRepository(RestaurantDbContext dbContext) : IRestaurant
             .FirstOrDefaultAsync();
         return restaurant;
     }
+    /// <summary>
+    /// Add a Restaurant entity to the repository and get/return the id of the new restaurant.
+    /// </summary>
+    /// <param name="restaurant"></param>
+    /// <returns></returns>
+    public async Task<int> CreateAsync(Restaurant restaurant)
+    {
+        _ = dbContext.Restaurant.Add(restaurant);
+        _ = await dbContext.SaveChangesAsync();
+        return restaurant.Id;
+    }
 }

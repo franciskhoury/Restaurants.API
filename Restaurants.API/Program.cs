@@ -11,6 +11,9 @@ builder.Services.AddControllers();
 // Register services for the Infrastucture layer
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Allow for 'Async'-named methods in Controllers
+builder.Services.AddControllersWithViews(options => options.SuppressAsyncSuffixInActionNames = false);
+
 // Register services for the Infrastucture layer
 builder.Services.AddApplication();
 

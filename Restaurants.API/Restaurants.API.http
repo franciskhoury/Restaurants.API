@@ -9,4 +9,23 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants/3
 
+###
 
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+{
+    "Name" : "Shittin on Shingelz 2",
+    "Description": "A Last Resort",
+    "Category": "Food?",
+    "HasDelivery": false,
+    "ContactEmail": "info@shittin.com",
+    "ContactPhoneNumber": "732-999-5546",
+    "Street": "147 Water Treatement Boulevard",
+    "City": "Sulphur Springs",
+    "State": "NJ",
+    "PostalCode": "08888",
+    "CountryCode": "US"
+}
+
+###
+GET https://localhost:7127/api/restaurants/14
