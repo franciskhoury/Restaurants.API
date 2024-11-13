@@ -7,7 +7,7 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/3
+GET {{Restaurants.API_HostAddress}}/api/restaurants/16
 
 ###
 
@@ -28,4 +28,23 @@ Content-Type: application/json
 }
 
 ###
-GET https://localhost:7127/api/restaurants/14
+POST {{Restaurants.API_HostAddress}}/api/restaurants
+Content-Type: application/json
+{
+    "Name" : "Spoonfull",
+    "Description": "Soups 'n Sammiches",
+    "Category": "Winter Foods",
+    "HasDelivery": false,
+    "ContactEmail": "billy@",
+    "ContactPhoneNumber": "732-999--",
+    "Street": "147 Water Treatement Boulevard",
+    "City": "Sulphur Springs",
+    "State": "NJ",
+    "PostalCode": "M3C-1E3",
+    "CountryCode": "USA"
+}
+
+###
+GET {{Restaurants.API_HostAddress}}/api/restaurants/{id}
+
+###

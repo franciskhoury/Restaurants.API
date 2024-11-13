@@ -37,8 +37,15 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
     /// <param name="restaurantToCreate"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<IActionResult> CreateRestaurantAsync([FromBody] RestaurantCreationDTO restaurantToCreate)
+    public async Task<IActionResult> CreateRestaurantAsync(RestaurantCreationDTO restaurantToCreate)
     {
+        // Manual validation not needed if class deocrated with [ApiCOntroller]
+        //
+        //if (!ModelState.IsValid)
+        //{
+        //    return BadRequest(ModelState);
+        //}
+
         int id = await restaurantService.CreateRestaurantAsync(restaurantToCreate);
         return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
     }
