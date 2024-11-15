@@ -19,12 +19,11 @@ Content-Type: application/json
     "Category": "Food?",
     "HasDelivery": false,
     "ContactEmail": "info@shittin.com",
-    "ContactPhoneNumber": "732-999-5546",
+    "ContactPhoneNumber": "732-999-554A",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
-    "State": "NJ",
-    "PostalCode": "08888",
-    "CountryCode": "US"
+    "State": "N2",
+    "PostalCode": "0888S"
 }
 
 ###
@@ -35,13 +34,12 @@ Content-Type: application/json
     "Description": "Soups 'n Sammiches",
     "Category": "Winter Foods",
     "HasDelivery": false,
-    "ContactEmail": "billy@",
-    "ContactPhoneNumber": "732-999--",
+    "ContactEmail": "billy@soupy.net",
+    "ContactPhoneNumber": "67",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
     "State": "NJ",
-    "PostalCode": "M3C-1E3",
-    "CountryCode": "USA"
+    "PostalCode": "62002-1234"
 }
 
 ###

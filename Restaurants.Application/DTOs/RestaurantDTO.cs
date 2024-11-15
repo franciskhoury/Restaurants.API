@@ -31,7 +31,6 @@ public class RestaurantDTO
     public string? City { get; set; }
     public string? State { get; set; }
     public string? PostalCode { get; set; }
-    public string? CountryCode { get; set; }
     /// <summary>
     /// List of dishes on the menu
     /// </summary>
@@ -57,7 +56,6 @@ public class RestaurantDTO
                 State = restaurant.Address?.State,
                 Street = restaurant.Address?.Street,
                 PostalCode = restaurant.Address?.PostalCode,
-                CountryCode = restaurant.Address?.CountryCode,
                 Dishes = restaurant.Dishes.Select(DishDTO.FromEntity).ToList()
             };
     }
@@ -75,8 +73,7 @@ public class RestaurantDTO
                 City = dto.City,
                 State = dto.State,
                 Street = dto.Street,
-                PostalCode = dto.PostalCode,
-                CountryCode = dto.CountryCode
+                PostalCode = dto.PostalCode
             }
         };
     }

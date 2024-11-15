@@ -33,8 +33,7 @@ internal class RestaurantSeeder(RestaurantDbContext dbContext) : IRestaurantSeed
                    Street = "45 Hazel Street",
                    City = "Paterson",
                    State = "NJ",
-                   PostalCode = "07777",
-                   CountryCode = "US"
+                   PostalCode = "07777"
                 },
                 Dishes = [
                     new ()
@@ -65,8 +64,7 @@ internal class RestaurantSeeder(RestaurantDbContext dbContext) : IRestaurantSeed
                 Street = "101 Castle Way",
                 City = "Linden",
                 State = "NJ",
-                PostalCode = "08120",
-                CountryCode = "US"
+                PostalCode = "08120"
             },
             Dishes =
             [
