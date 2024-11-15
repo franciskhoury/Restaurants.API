@@ -18,12 +18,12 @@ Content-Type: application/json
     "Description": "A Last Resort",
     "Category": "Food?",
     "HasDelivery": false,
-    "ContactEmail": "info@shittin.com",
-    "ContactPhoneNumber": "732-999-554A",
+    "ContactEmail": "info&shittin.com",
+    "ContactPhoneNumber": "732-999-559",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
-    "State": "N2",
-    "PostalCode": "0888S"
+    "State": "NM",
+    "PostalCode": "08889"
 }
 
 ###

@@ -5,6 +5,13 @@ using Restaurants.Application.DTOs;
 namespace Restaurants.Application.Validators;
 public class RestaurantCreationDTOValidator : AbstractValidator<RestaurantCreationDTO>
 {
+    private readonly List<string> _validCategories =
+        ["Thai", "Indian", "Vietnamese", "Mediterranean", "Mexican", "Peruvian", "Chinese", "Japanese", "Korean", "Italian", "French", "German", "American",
+        "Philippino","Malaysian","Nepalese","Spanish","Brazilian","Polish","Lebanese","Russian","Cajun","Cuban","Venezuelan"];
+
+    /// <summary>
+    /// Constructor sets up validation rules for building the RestaurantCreationDTO object.
+    /// </summary>
     public RestaurantCreationDTOValidator()
     {
         _ = RuleFor(dto => dto.Name)
@@ -12,7 +19,16 @@ public class RestaurantCreationDTOValidator : AbstractValidator<RestaurantCreati
         _ = RuleFor(dto => dto.Description)
             .NotEmpty().WithMessage("A Description is required.");
         _ = RuleFor(dto => dto.Category)
-            .NotEmpty().WithMessage("A Category is required.");
+            .Must(_validCategories.Contains)
+            .WithMessage("Must be a valid category.");
+        //.Custom((value, context) =>
+        //{
+        //    var isValidCategory = _validCategories.Contains(value);
+        //    if (!isValidCategory)
+        //    {
+        //        context.AddFailure("Category", "Must be a valid category.");
+        //    }
+        //});
         _ = RuleFor(dto => dto.ContactEmail)
             .EmailAddress().WithMessage("A valid email address is required.");
         _ = RuleFor(dto => dto.PostalCode)
@@ -23,6 +39,6 @@ public class RestaurantCreationDTOValidator : AbstractValidator<RestaurantCreati
             .WithMessage("Please provide a 2-letter State code.");
         _ = RuleFor(dto => dto.ContactPhoneNumber)
             .Matches(@"^\d{3}-\d{3}-\d{4}$")
-            .WithMessage("Please provide Phone Number (999-999-9999).");
+            .WithMessage("The required format for Contact Phone Number is: 999-999-9999.");
     }
 }
