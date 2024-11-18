@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 
+using Restaurants.Application.Commands;
 using Restaurants.Domain.Entities;
 
 namespace Restaurants.Application.DTOs;
@@ -16,7 +17,12 @@ public class RestaurantProfile : Profile
     /// </summary>
     public RestaurantProfile()
     {
-        _ = CreateMap<RestaurantCreationDTO, Restaurant>()
+
+        //-----------------------------------------------------------------
+        // For the CQRS classes.
+        //------------------------------------------------------------------
+
+        _ = CreateMap<CreateRestaurantCommand, Restaurant>()
             .ForMember(d => d.Address, opt => opt.MapFrom(
                 src => new Address
                 {
@@ -24,6 +30,19 @@ public class RestaurantProfile : Profile
                     City = src.City,
                     PostalCode = src.PostalCode
                 }));
+
+        //-----------------------------------------------------------------
+        // For the RestaurantService class (original).
+        //------------------------------------------------------------------
+
+        //_ = CreateMap<RestaurantCreationDTO, Restaurant>()
+        //    .ForMember(d => d.Address, opt => opt.MapFrom(
+        //        src => new Address
+        //        {
+        //            Street = src.Street,
+        //            City = src.City,
+        //            PostalCode = src.PostalCode
+        //        }));
 
         _ = CreateMap<Restaurant, RestaurantDTO>()
             .ForMember(d => d.City, opt => opt.MapFrom(src => src.Address == null ? null : src.Address.City))

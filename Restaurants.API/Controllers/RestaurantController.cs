@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
 
-using Restaurants.Application.DTOs;
-using Restaurants.Application.Services;
+using Microsoft.AspNetCore.Mvc;
+
+using Restaurants.Application.Commands;
+using Restaurants.Application.Queries;
 
 namespace Restaurants.API.Controllers;
 
 [ApiController]
 [Route("api/restaurants")]
-public class RestaurantController(IRestaurantService restaurantService) : Controller
+public class RestaurantController(IMediator mediator) : Controller
 {
     /// <summary>
     /// Retrieve all Restaurants from the data store asynchronously.
@@ -16,7 +18,7 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {
-        var restaurants = await restaurantService.GetAllRestaurantsAsync();
+        var restaurants = await mediator.Send(new GetAllRestaurantsQuery());
         return Ok(restaurants);
     }
 
@@ -27,17 +29,19 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
     [HttpGet("{id}")]
     public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
     {
-        var restaurant = await restaurantService.GetRestaurantByIdAsync(id);
-        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.") : Ok(restaurant);
+        var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
+
+        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.")
+                                     : Ok(restaurant);
     }
 
     /// <summary>
     /// Create a new Restaurant in the data store.
     /// </summary>
-    /// <param name="restaurantToCreate"></param>
+    /// <param name="command"></param>
     /// <returns></returns>
-    [HttpPost]
-    public async Task<IActionResult> CreateRestaurantAsync(RestaurantCreationDTO restaurantToCreate)
+    //[HttpPost]
+    public async Task<IActionResult> CreateRestaurantAsync(CreateRestaurantCommand command)
     {
         // Manual validation not needed if class deocrated with [ApiCOntroller]
         //
@@ -46,7 +50,7 @@ public class RestaurantController(IRestaurantService restaurantService) : Contro
         //    return BadRequest(ModelState);
         //}
 
-        int id = await restaurantService.CreateRestaurantAsync(restaurantToCreate);
+        int id = await mediator.Send(command);
         return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
     }
 }

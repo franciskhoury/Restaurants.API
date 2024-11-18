@@ -16,10 +16,10 @@ Content-Type: application/json
 {
     "Name" : "Shittin on Shingelz 2",
     "Description": "A Last Resort",
-    "Category": "Food?",
+    "Category": "Mexican",
     "HasDelivery": false,
-    "ContactEmail": "info&shittin.com",
-    "ContactPhoneNumber": "732-999-559",
+    "ContactEmail": "info@shittin.com",
+    "ContactPhoneNumber": "732-999-5593",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
     "State": "NM",
@@ -44,5 +44,9 @@ Content-Type: application/json
 
 ###
 GET {{Restaurants.API_HostAddress}}/api/restaurants/{id}
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
