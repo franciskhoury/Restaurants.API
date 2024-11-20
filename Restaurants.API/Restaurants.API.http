@@ -7,7 +7,7 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/16
+GET {{Restaurants.API_HostAddress}}/api/restaurants/31
 
 ###
 
@@ -18,7 +18,7 @@ Content-Type: application/json
     "Description": "A Last Resort",
     "Category": "Mexican",
     "HasDelivery": false,
-    "ContactEmail": "info@shittin.com",
+    "ContactEmail": "info@shittin,com",
     "ContactPhoneNumber": "732-999-5593",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
@@ -34,7 +34,7 @@ Content-Type: application/json
     "Description": "Soups 'n Sammiches",
     "Category": "Winter Foods",
     "HasDelivery": false,
-    "ContactEmail": "billy@soupy.net",
+    "ContactEmail": "billy@soupy,net",
     "ContactPhoneNumber": "67",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
@@ -50,3 +50,5 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants/{id}
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
+
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/999

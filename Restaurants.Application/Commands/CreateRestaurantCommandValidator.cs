@@ -19,14 +19,6 @@ public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaura
         _ = RuleFor(dto => dto.Category)
             .Must(_validCategories.Contains)
             .WithMessage("Must be a valid category.");
-        //.Custom((value, context) =>
-        //{
-        //    var isValidCategory = _validCategories.Contains(value);
-        //    if (!isValidCategory)
-        //    {
-        //        context.AddFailure("Category", "Must be a valid category.");
-        //    }
-        //});
         _ = RuleFor(dto => dto.ContactEmail)
             .EmailAddress().WithMessage("A valid email address is required.");
         _ = RuleFor(dto => dto.PostalCode)

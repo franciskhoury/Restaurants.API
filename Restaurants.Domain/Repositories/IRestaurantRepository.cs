@@ -20,4 +20,5 @@ public interface IRestaurantRepository
     /// <param name="restaurant"></param>
     /// <returns></returns>
     Task<int> CreateAsync(Restaurant restaurant);
+    Task Delete(Restaurant restaurant);
 }

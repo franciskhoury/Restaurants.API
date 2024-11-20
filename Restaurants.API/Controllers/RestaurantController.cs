@@ -16,7 +16,7 @@ public class RestaurantController(IMediator mediator) : Controller
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public async Task<IActionResult> GetAllAsync()
+    public async Task<IActionResult> GetAll()
     {
         var restaurants = await mediator.Send(new GetAllRestaurantsQuery());
         return Ok(restaurants);
@@ -27,12 +27,24 @@ public class RestaurantController(IMediator mediator) : Controller
     /// </summary>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
+    public async Task<IActionResult> GetById([FromRoute] int id)
     {
         var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
 
         return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.")
                                      : Ok(restaurant);
+    }
+
+    /// <summary>
+    /// Remove the Restaurant from the data store for the provided ID.
+    /// </summary>
+    /// <returns></returns>
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] int id)
+    {
+        var isDeleted = await mediator.Send(new DeleteRestaurantCommand(id));
+
+        return isDeleted ? NoContent() : NotFound();
     }
 
     /// <summary>
@@ -51,6 +63,6 @@ public class RestaurantController(IMediator mediator) : Controller
         //}
 
         int id = await mediator.Send(command);
-        return CreatedAtAction(nameof(GetByIdAsync), new { id }, null);
+        return CreatedAtAction(nameof(GetById), new { id }, null);
     }
 }
