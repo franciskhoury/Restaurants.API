@@ -16,7 +16,7 @@ public class RestaurantController(IMediator mediator) : Controller
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAllRestaurants()
     {
         var restaurants = await mediator.Send(new GetAllRestaurantsQuery());
         return Ok(restaurants);
@@ -27,7 +27,7 @@ public class RestaurantController(IMediator mediator) : Controller
     /// </summary>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById([FromRoute] int id)
+    public async Task<IActionResult> GetRestaurantById([FromRoute] int id)
     {
         var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
 
@@ -40,11 +40,20 @@ public class RestaurantController(IMediator mediator) : Controller
     /// </summary>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete([FromRoute] int id)
+    public async Task<IActionResult> DeleteRestaurant([FromRoute] int id)
     {
         var isDeleted = await mediator.Send(new DeleteRestaurantCommand(id));
 
         return isDeleted ? NoContent() : NotFound();
+    }
+
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, UpdateRestaurantCommand command)
+    {
+        command.Id = id;
+        var isUpdated = await mediator.Send(command);
+
+        return isUpdated ? NoContent() : NotFound();
     }
 
     /// <summary>
@@ -53,7 +62,7 @@ public class RestaurantController(IMediator mediator) : Controller
     /// <param name="command"></param>
     /// <returns></returns>
     //[HttpPost]
-    public async Task<IActionResult> CreateRestaurantAsync(CreateRestaurantCommand command)
+    public async Task<IActionResult> CreateRestaurant(CreateRestaurantCommand command)
     {
         // Manual validation not needed if class deocrated with [ApiCOntroller]
         //
@@ -63,6 +72,6 @@ public class RestaurantController(IMediator mediator) : Controller
         //}
 
         int id = await mediator.Send(command);
-        return CreatedAtAction(nameof(GetById), new { id }, null);
+        return CreatedAtAction(nameof(GetRestaurantById), new { id }, null);
     }
 }

@@ -32,10 +32,10 @@ Content-Type: application/json
 {
     "Name" : "Spoonfull",
     "Description": "Soups 'n Sammiches",
-    "Category": "Winter Foods",
+    "Category": "Malaysian",
     "HasDelivery": false,
     "ContactEmail": "billy@soupy,net",
-    "ContactPhoneNumber": "67",
+    "ContactPhoneNumber": "678-678-6788",
     "Street": "147 Water Treatement Boulevard",
     "City": "Sulphur Springs",
     "State": "NJ",
@@ -51,4 +51,14 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 
 ###
 
-DELETE {{Restaurants.API_HostAddress}}/api/restaurants/999
+DELETE {{Restaurants.API_HostAddress}}/api/restaurants/32
+
+###
+
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/32
+Content-Type: application/json
+{
+    "Name" : "Tony's Spoonfull",
+    "Description": "Soup to Nuts",
+    "HasDelivery": true
+}
