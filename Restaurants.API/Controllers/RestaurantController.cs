@@ -31,7 +31,7 @@ public class RestaurantController(IMediator mediator) : Controller
     {
         var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
 
-        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store.")
+        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store YO.")
                                      : Ok(restaurant);
     }
 

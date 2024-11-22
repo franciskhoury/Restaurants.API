@@ -7,16 +7,16 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/31
+GET {{Restaurants.API_HostAddress}}/api/restaurants/3154
 
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 {
-    "Name" : "Shittin on Shingelz 2",
+    "Name" : "Shittin on Shingelz 3",
     "Description": "A Last Resort",
-    "Category": "Mexican",
+    "Category": "Mexicano",
     "HasDelivery": false,
     "ContactEmail": "info@shittin,com",
     "ContactPhoneNumber": "732-999-5593",
@@ -55,10 +55,10 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/32
 
 ###
 
-PATCH {{Restaurants.API_HostAddress}}/api/restaurants/32
+PATCH {{Restaurants.API_HostAddress}}/api/restaurants/33
 Content-Type: application/json
 {
-    "Name" : "Tony's Spoonfull",
+    "Name" : "Tonay's Spoonfull",
     "Description": "Soup to Nuts",
     "HasDelivery": true
 }

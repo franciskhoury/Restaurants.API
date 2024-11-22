@@ -4,15 +4,12 @@ using Restaurants.Domain.Entities;
 
 namespace Restaurants.Infrastructure.Persistence;
 
-internal class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : DbContext(options)
+public class RestaurantDbContext(DbContextOptions<RestaurantDbContext> options) : DbContext(options)
 {
     internal DbSet<Restaurant> Restaurant { get; set; }
     internal DbSet<Dish> Dish { get; set; }
+    internal DbSet<RestaurantCategory> RestaurantCategory { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    _ = optionsBuilder.UseSqlServer("Data Source=MISWS114\\MSSQLSERVER01;Initial Catalog=RestaurantDb;Integrated Security=True;Trust Server Certificate=True");
-    //}
 
     /// <summary>
     /// Set up the entity relationships

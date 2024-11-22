@@ -1,5 +1,9 @@
 using Restaurants.Application.Extensions;
+using Restaurants.Application.Services;
+using Restaurants.Domain.Repositories;
+using Restaurants.Domain.Services;
 using Restaurants.Infrastructure.Extensions;
+using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +20,10 @@ builder.Services.AddControllersWithViews(options => options.SuppressAsyncSuffixI
 
 // Register services for the Infrastucture layer
 builder.Services.AddApplication();
+
+// Inject service, repo for validating restaurant catgories
+builder.Services.AddScoped<IRestaurantCategoryService, RestaurantCategoryService>();
+builder.Services.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepository>();
 
 var app = builder.Build();
 

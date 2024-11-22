@@ -14,6 +14,13 @@ internal class RestaurantSeeder(RestaurantDbContext dbContext) : IRestaurantSeed
                 dbContext.Restaurant.AddRange(restaurants);
                 _ = await dbContext.SaveChangesAsync();
             }
+
+            if (!dbContext.RestaurantCategory.Any())
+            {
+                var categories = GetRestaurantCategories();
+                dbContext.RestaurantCategory.AddRange(categories);
+                _ = await dbContext.SaveChangesAsync();
+            }
         }
     }
 
@@ -80,5 +87,28 @@ internal class RestaurantSeeder(RestaurantDbContext dbContext) : IRestaurantSeed
         ];
 
         return restaurants;
+    }
+
+
+    private IEnumerable<RestaurantCategory> GetRestaurantCategories()
+    {
+        List<RestaurantCategory> categories =
+        [
+            new(){ Name = "Thai" },
+            new(){ Name = "Indian" },
+            new(){ Name = "Vietnamese" },
+            new(){ Name = "Lebanese" },
+            new(){ Name = "Russian" },
+            new(){ Name = "Cuban" },
+            new(){ Name = "Japanese" },
+            new(){ Name = "Mexican" },
+            new(){ Name = "Chinese" },
+            new(){ Name = "German" },
+            new(){ Name = "French" },
+            new(){ Name = "Spanish" },
+            new(){ Name = "Italian" }
+        ];
+
+        return categories;
     }
 }
