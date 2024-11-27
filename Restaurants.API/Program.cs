@@ -7,7 +7,6 @@ using Restaurants.Infrastructure.Repositories;
 using Restaurants.Infrastructure.Seeders;
 
 using Serilog;
-using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,9 +29,11 @@ builder.Services.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepo
 
 builder.Host.UseSerilog((context, configuration) =>
     configuration
-    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-    .MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Information)
-    .WriteTo.Console(outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] |{SourceContext}| {NewLine}{Message:lj}{NewLine}{Exception}")
+    .ReadFrom.Configuration(context.Configuration)
+    //.MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    //.MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Information)
+    //.WriteTo.File("Logs/Restaurant-API-.log", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
+    //.WriteTo.Console(outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] |{SourceContext}| {NewLine}{Message:lj}{NewLine}{Exception}")
     );
 
 var app = builder.Build();

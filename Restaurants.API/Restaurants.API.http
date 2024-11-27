@@ -30,9 +30,9 @@ Content-Type: application/json
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 {
-    "Name" : "Spoonfull",
-    "Description": "Soups 'n Sammiches",
-    "Category": "Malaysian",
+    "Name" : "Craptasty 2",
+    "Description": "Mo' Poop 'n Pee",
+    "Category": "French",
     "HasDelivery": false,
     "ContactEmail": "billy@soupy,net",
     "ContactPhoneNumber": "678-678-6788",
@@ -58,7 +58,7 @@ DELETE {{Restaurants.API_HostAddress}}/api/restaurants/32
 PATCH {{Restaurants.API_HostAddress}}/api/restaurants/33
 Content-Type: application/json
 {
-    "Name" : "Tonay's Spoonfull",
+    "Name" : "Tonay's Spoonfullyullio!!",
     "Description": "Soup to Nuts",
     "HasDelivery": true
 }
