@@ -7,16 +7,16 @@
 GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
-GET {{Restaurants.API_HostAddress}}/api/restaurants/3154
+GET {{Restaurants.API_HostAddress}}/api/restaurants/3
 
 ###
 
 POST {{Restaurants.API_HostAddress}}/api/restaurants
 Content-Type: application/json
 {
-    "Name" : "Shittin on Shingelz 3",
+    "Name" : "Shittin on Shingelz 4",
     "Description": "A Last Resort",
-    "Category": "Mexicano",
+    "Category": "MexicanZ",
     "HasDelivery": false,
     "ContactEmail": "info@shittin,com",
     "ContactPhoneNumber": "732-999-5593",
