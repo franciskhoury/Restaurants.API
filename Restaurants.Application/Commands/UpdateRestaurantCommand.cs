@@ -1,7 +1,7 @@
 ﻿using MediatR;
 
 namespace Restaurants.Application.Commands;
-public class UpdateRestaurantCommand : IRequest<bool>
+public class UpdateRestaurantCommand : IRequest
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;

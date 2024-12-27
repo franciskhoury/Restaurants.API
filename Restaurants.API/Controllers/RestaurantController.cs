@@ -30,9 +30,7 @@ public class RestaurantController(IMediator mediator) : Controller
     public async Task<IActionResult> GetRestaurantById([FromRoute] int id)
     {
         var restaurant = await mediator.Send(new GetRestaurantByIdQuery(id));
-
-        return restaurant is null ? NotFound($"No restaurant with id {id} exists in the data store YO.")
-                                     : Ok(restaurant);
+        return Ok(restaurant);
     }
 
     /// <summary>
@@ -42,18 +40,18 @@ public class RestaurantController(IMediator mediator) : Controller
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteRestaurant([FromRoute] int id)
     {
-        var isDeleted = await mediator.Send(new DeleteRestaurantCommand(id));
+        await mediator.Send(new DeleteRestaurantCommand(id));
 
-        return isDeleted ? NoContent() : NotFound();
+        return NoContent();
     }
 
     [HttpPatch("{id}")]
     public async Task<IActionResult> UpdateRestaurant([FromRoute] int id, UpdateRestaurantCommand command)
     {
         command.Id = id;
-        var isUpdated = await mediator.Send(command);
+        await mediator.Send(command);
 
-        return isUpdated ? NoContent() : NotFound();
+        return NoContent();
     }
 
     /// <summary>
