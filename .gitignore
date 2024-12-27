@@ -1,6 +1,7 @@
 # Ignore /bin, /obj, and /.vs directories
 bin/
 obj/
+Logs/
 .vs/
 
 # Ignore .user files

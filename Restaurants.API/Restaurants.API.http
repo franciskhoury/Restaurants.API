@@ -62,3 +62,14 @@ Content-Type: application/json
     "Description": "Soup to Nuts",
     "HasDelivery": true
 }
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
+
+GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###

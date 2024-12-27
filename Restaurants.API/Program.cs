@@ -1,3 +1,4 @@
+using Restaurants.API.Middleware;
 using Restaurants.Application.Extensions;
 using Restaurants.Application.Services;
 using Restaurants.Domain.Repositories;
@@ -27,6 +28,10 @@ builder.Services.AddApplication();
 builder.Services.AddScoped<IRestaurantCategoryService, RestaurantCategoryService>();
 builder.Services.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepository>();
 
+builder.Services.AddOpenApi();
+
+builder.Services.AddScoped<ExceptionHandlingMiddleware>();
+
 builder.Host.UseSerilog((context, configuration) =>
     configuration
     .ReadFrom.Configuration(context.Configuration)
@@ -43,9 +48,16 @@ var scope = app.Services.CreateScope();
 var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
 await seeder.SeedAsync();
 
-// Configure the HTTP request pipeline.
 
+
+// Configure the HTTP request pipeline. (MIDDLEWARE)
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseSerilogRequestLogging();
+
+if (app.Environment.IsDevelopment())
+{
+    _ = app.MapOpenApi();
+}
 
 app.UseHttpsRedirection();
 
