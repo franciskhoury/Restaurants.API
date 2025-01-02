@@ -31,6 +31,7 @@ builder.Services.AddScoped<IRestaurantCategoryRepository, RestaurantCategoryRepo
 builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<ExceptionHandlingMiddleware>();
+builder.Services.AddScoped<RequestTimerMiddleware>();
 
 builder.Host.UseSerilog((context, configuration) =>
     configuration
@@ -52,6 +53,7 @@ await seeder.SeedAsync();
 
 // Configure the HTTP request pipeline. (MIDDLEWARE)
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<RequestTimerMiddleware>();
 app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())
