@@ -8,7 +8,7 @@ using Restaurants.Domain.Entities;
 using Restaurants.Domain.Exceptions;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Commands;
+namespace Restaurants.Application.Commands.Restaurants;
 public class UpdateRestaurantCommandHandler(IRestaurantRepository restaurantRepository,
                                  ILogger<UpdateRestaurantCommandHandler> logger,
                                  IMapper mapper) : IRequestHandler<UpdateRestaurantCommand>

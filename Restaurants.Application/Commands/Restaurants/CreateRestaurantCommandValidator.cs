@@ -2,7 +2,7 @@
 
 using Restaurants.Domain.Services;
 
-namespace Restaurants.Application.Commands;
+namespace Restaurants.Application.Commands.Restaurants;
 public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaurantCommand>
 {
     private readonly IRestaurantCategoryService _service;
@@ -28,9 +28,7 @@ public class CreateRestaurantCommandValidator : AbstractValidator<CreateRestaura
             {
                 var validCategories = _service.GetValidCategories();
                 if (!validCategories.ToList().Contains(category))
-                {
                     context.AddFailure("Category", "Must be a valid category.");
-                }
 
             });
 

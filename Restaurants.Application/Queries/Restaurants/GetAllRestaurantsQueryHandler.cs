@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using Restaurants.Application.DTOs;
 using Restaurants.Domain.Repositories;
 
-namespace Restaurants.Application.Queries;
+namespace Restaurants.Application.Queries.Restaurants;
 public class GetAllRestaurantsQueryHandler(ILogger<GetAllRestaurantsQueryHandler> logger,
     IMapper mapper,
     IRestaurantRepository restaurantRepository) : IRequestHandler<GetAllRestaurantsQuery, IEnumerable<RestaurantDTO>>

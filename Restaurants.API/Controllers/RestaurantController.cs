@@ -2,8 +2,8 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using Restaurants.Application.Commands;
-using Restaurants.Application.Queries;
+using Restaurants.Application.Commands.Restaurants;
+using Restaurants.Application.Queries.Restaurants;
 
 namespace Restaurants.API.Controllers;
 

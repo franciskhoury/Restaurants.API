@@ -43,7 +43,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{Restaurants.API_HostAddress}}/api/restaurants/{id}
+GET {{Restaurants.API_HostAddress}}/api/restaurants/37
 
 ###
 
@@ -82,5 +82,15 @@ GET {{Restaurants.API_HostAddress}}/api/restaurants
 ###
 
 GET {{Restaurants.API_HostAddress}}/api/restaurants
+
+###
+
+POST {{Restaurants.API_HostAddress}}/api/restaurants/37/dishes
+Content-Type: application/json
+
+{
+  "Name" : "Fragrant Piles",
+  "Description": "Eat it Again!"
+}
 
 ###
