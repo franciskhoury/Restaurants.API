@@ -8,4 +8,6 @@ public interface IDishRepository
     /// </summary>
     /// <returns></returns>
     Task<int> CreateAsync(Dish entity);
+
+    //Task<IEnumerable<Dish>> GetDishesForRestaurant(int restaurantId);
 }
